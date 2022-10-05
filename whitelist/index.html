@@ -158,25 +158,25 @@ the OS image.</li>
 <h4 id="whitelisting-documents">Whitelisting Documents</h4>
 
 <p>We search relevant documents on the Internet to support our finding, and we successfully find one webpage hosted in Huawei’s developers community website, saying that the whitelisting mechanism is intentionally introduced for bring convenience to device users to avoid too many bothering user-clicking actions to allow certain runtime permissions.<br />
-We reported this issue to Huawei and then received the acknowledgment of the issue. The webpage has been later taken down by Huawei. We keep a copy of the <a href="/docs/public/huawei-whitelist-documentation-snapshot-20-Jul-2021.pdf" target="_blank"><strong>webpage snapshot</strong></a> that describes the whitelisting mechanism (in Chinese).</p>
+We reported this issue to Huawei and then received the acknowledgment of the issue. The webpage has been later taken down by Huawei. We keep a copy of the <a href="/u2i2//docs/public/huawei-whitelist-documentation-snapshot-20-Jul-2021.pdf" target="_blank"><strong>webpage snapshot</strong></a> that describes the whitelisting mechanism (in Chinese).</p>
 
-<p><img src="/docs/public/huawei-whitelist-documentation.jpg" alt="Webpage snapshot in Chinese" width="600" /></p>
+<p><img src="/u2i2//docs/public/huawei-whitelist-documentation.jpg" alt="Webpage snapshot in Chinese" width="600" /></p>
 
 <h4 id="whitelisting-implementation">Whitelisting Implementation</h4>
 
 <p>We dump the image of our invloved tested devices and analyze how the whitelisting mechanism is implemented.<br />
 We find the source of whitelisting mechanism is in a class named <em>TelephonyPermissions</em>, in which a vendor modification over the original AOSP is made. As the result, all the permission checking against caller’s identity is compromised as long as the caller’s package name appears in the pre-defined whitelist.<br />
-We present the technical details in <a href="/docs/public/technical-demo.pdf" target="_blank"><strong>slides</strong></a> attached on this site.</p>
+We present the technical details in <a href="/u2i2//docs/public/technical-demo.pdf" target="_blank"><strong>slides</strong></a> attached on this site.</p>
 
-<p><img src="/docs/public/technical-demo.jpg" alt="Demo slides of how the whitelisting mechanism is implemented" width="600" /></p>
+<p><img src="/u2i2//docs/public/technical-demo.jpg" alt="Demo slides of how the whitelisting mechanism is implemented" width="600" /></p>
 
 <h4 id="whitelisting-apps">Whitelisting Apps</h4>
 
 <p>From the dumped image we also perform a text search and eventually find the list of <em>whitelisted apps</em> from a XML resource file.<br />
 Within the XML file, there are lists of apps’ package names defined in a <em>string-array</em> data structure. We find there are <em>162</em>  and <em>253</em> apps are defined as <em>“system apps”</em> and <em>“whitelisted app”</em>, respectively.<br />
-We attach the partial content of the XML file on this site, you can click <a href="/docs/public/whitelisted-app.xml" target="_blank"><strong>here</strong></a> to download it.</p>
+We attach the partial content of the XML file on this site, you can click <a href="/u2i2//docs/public/whitelisted-app.xml" target="_blank"><strong>here</strong></a> to download it.</p>
 
-<p><img src="/docs/public/whitelisted-app.jpg" alt="The XML file contains the whitelisted apps' package names" width="600" /></p>
+<p><img src="/u2i2//docs/public/whitelisted-app.jpg" alt="The XML file contains the whitelisted apps' package names" width="600" /></p>
 
 <p class="message">
 <b>Claim of Responsible Disclose</b>
